@@ -1,0 +1,54 @@
+{
+  "name": "job-search-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "cssnano": "^3.10.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "file-loader": "^1.1.5",
+    "image-webpack-loader": "^3.4.2",
+    "node-sass": "^4.6.0",
+    "nodemon": "^1.12.1",
+    "postcss-loader": "^2.0.8",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.8.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "enzyme": "^3.1.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "jest": "^21.2.1",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0"
+  },
+  "scripts": {
+    "start": "webpack & nodemon express.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genesis-io/job-search-ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/genesis-io/job-search-ui/issues"
+  },
+  "homepage": "https://github.com/genesis-io/job-search-ui#readme"
+}
