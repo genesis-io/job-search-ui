@@ -11,9 +11,9 @@ const options = {
 
 if (process.env.NODE_ENV === 'production') {
   options.devTool = '';
-  options.uglify = {
+  module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin({
     compress: { warnings: false }
-  }
+  }))
 }
 
 
@@ -57,8 +57,9 @@ module.exports = {
               pngquant: {
                 quality: 65,
               },
+              svggo: {},
               webp: {
-                quality: 75
+                quality: 65
               }
             }
           },
@@ -76,7 +77,6 @@ module.exports = {
       cssProcessorOptions: { discardComments: { removeAll: true } },
       canPrint: true
     }),
-    new webpack.optimize.UglifyJsPlugin(options.uglify)
   ]
 }
 
