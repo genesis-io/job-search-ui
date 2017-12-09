@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.nav {
+  @include breakpoints('x-small') {
+    width: 100vw;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    background: $primary-linear;
+    color: white;
+    button {
+
+    }
+  }
+}
