@@ -28509,7 +28509,7 @@ var NavBar = function (_Component) {
         ),
         _react2.default.createElement(
           'div',
-          null,
+          { className: 'link-container' },
           _react2.default.createElement(
             _reactRouterDom.Link,
             { to: '/signup', className: 'cta-button' },
@@ -28570,7 +28570,7 @@ exports = module.exports = __webpack_require__(25)(undefined);
 
 
 // module
-exports.push([module.i, "@media (min-width: 320px) {\n  .nav {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    width: 100vw;\n    height: 100px;\n    position: fixed;\n    top: 0;\n    background: linear-gradient(135deg, #1673e6 50%, #01a1e7 100%);\n    padding: 0 10px; }\n    .nav a {\n      font-size: 18px;\n      padding: 10px 30px; }\n    .nav .cta-button {\n      background-color: rgba(0, 0, 0, 0.1);\n      color: white; }\n    .nav .transparent-button {\n      margin-left: 30px;\n      color: white; }\n    .nav .link-home {\n      margin-left: 0; } }\n", ""]);
+exports.push([module.i, "@media (min-width: 320px) {\n  .nav {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-evenly;\n    align-items: center;\n    width: 100vw;\n    height: 250px;\n    position: fixed;\n    top: 0;\n    background: linear-gradient(135deg, #1673e6 50%, #01a1e7 100%);\n    padding: 0 10px; }\n    .nav a {\n      font-size: 18px;\n      padding: 10px 30px;\n      color: rgba(255, 255, 255, 0.7); }\n    .nav .link-container {\n      display: flex;\n      flex-direction: column;\n      justify-content: center;\n      align-items: center; }\n    .nav .link-home {\n      margin-left: 0;\n      font-size: 24px;\n      color: white;\n      font-weight: bold; } }\n\n@media (min-width: 768px) {\n  .nav {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    height: 100px; }\n    .nav .link-container {\n      display: flex;\n      flex-direction: row;\n      justify-content: center;\n      align-items: center; }\n    .nav a {\n      font-size: 18px;\n      padding: 10px 30px; }\n    .nav .cta-button {\n      background-color: rgba(0, 0, 0, 0.1);\n      color: white; }\n    .nav .transparent-button {\n      margin-left: 30px;\n      color: white; }\n    .nav .link-home {\n      margin-left: 0; } }\n", ""]);
 
 // exports
 

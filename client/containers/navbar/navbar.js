@@ -11,7 +11,7 @@ class NavBar extends Component {
         <Link to="/" className="link-home transparent-button">
           Job Search
         </Link>
-        <div>
+        <div className="link-container">
           <Link to="/signup" className="cta-button">Signup</Link>
           <Link to="/login" className="transparent-button">Login</Link>
         </div>

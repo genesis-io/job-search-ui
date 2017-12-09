@@ -3,25 +3,55 @@
 
 .nav {
   @include breakpoints('x-small') {
-    @include flex(row, space-between, center);
+    @include flex(column, space-evenly, center);
     width: 100vw;
-    height: 100px;
+    height: 250px;
     position: fixed;
     top: 0;
     background: $primary-linear;
     padding:0 10px;
+
+    a {
+      font-size: $font-size-medium;
+      padding: 10px 30px;
+      color: $link-color;
+    }
+
+    .link-container {
+      @include flex(column, center, center);
+    }
+
+    .link-home {
+      margin-left: 0;
+      font-size: $font-size-large;
+      color: white;
+      font-weight: bold;
+    }
+
+  }
+  @include breakpoints('medium') {
+    @include flex(row, space-between, center);
+    height: 100px;
+
+    .link-container {
+      @include flex(row, center, center)
+    }
+
     a {
       font-size: $font-size-medium;
       padding: 10px 30px;
     }
+
     .cta-button {
       background-color: rgba(0,0,0,.1);
       color: white;
     }
+
     .transparent-button {
       margin-left: 30px;
       color: white;
     }
+
     .link-home {
       margin-left: 0;
     }
