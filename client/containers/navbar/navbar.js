@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './navbar.scss';
 import '../../styles/_components.scss';
 
 class NavBar extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   render() {
     return (
       <nav className="nav">
-        <div>
+        <Link to="/" className="link-home transparent-button">
           Job Search
-        </div>
+        </Link>
         <div>
-          <button className="transparent-button">Login</button>
-          <button className="cta-button">Signup</button>
+          <Link to="/signup" className="cta-button">Signup</Link>
+          <Link to="/login" className="transparent-button">Login</Link>
         </div>
       </nav>
     );

@@ -9,9 +9,21 @@
     position: fixed;
     top: 0;
     background: $primary-linear;
-    color: white;
-    button {
-
+    padding:0 10px;
+    a {
+      font-size: $font-size-medium;
+      padding: 10px 30px;
+    }
+    .cta-button {
+      background-color: rgba(0,0,0,.1);
+      color: white;
+    }
+    .transparent-button {
+      margin-left: 30px;
+      color: white;
+    }
+    .link-home {
+      margin-left: 0;
     }
   }
 }
