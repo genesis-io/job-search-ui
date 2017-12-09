@@ -3,6 +3,7 @@
 
 .nav {
   @include breakpoints('x-small') {
+    @include flex(row, space-between, center);
     width: 100vw;
     height: 100px;
     position: fixed;

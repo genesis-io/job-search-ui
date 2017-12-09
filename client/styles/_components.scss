@@ -1,0 +1,14 @@
+.default-button {
+  border-radius: 5px;
+  text-align: center;
+}
+
+.transparent-button {
+  @extend .default-button;
+  background-color: transparent;
+}
+
+.cta-button {
+  @extend .default-button;
+  font-weight: bold;
+}
