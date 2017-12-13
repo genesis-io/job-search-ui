@@ -3,9 +3,15 @@ import NavBar from '../navbar/navbar';
 import './home.scss';
 
 export default class Home extends Component {
+  constructor({ children }) {
+    super({ children });
+  }
   render() {
     return (
-      <NavBar />
+      <div>
+        <NavBar />
+        {this.children}
+      </div>
     );
   }
 }

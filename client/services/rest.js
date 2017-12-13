@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const localHost = 'http://localhost/3000/';
-const authUrl = 'api/auth';
+const localHost = 'http://localhost:3000';
+const authUrl = '/api/auth';
 const loginUrl = `${localHost}${authUrl}/login`;
 const signUpUrl = `${localHost}${authUrl}/signup`;
 

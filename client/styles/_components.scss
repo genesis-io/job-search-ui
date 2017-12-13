@@ -14,3 +14,12 @@
   @extend .default-button;
   font-weight: bold;
 }
+
+.default-input {
+  border-radius: 5px;
+}
+
+.error-input {
+  @extend .default-input;
+  border-color: red;
+}
