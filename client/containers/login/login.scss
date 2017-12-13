@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+@import '../../styles/components';
+
+@include breakpoints('x-small') {
+  .login {
+    @include flex(column, space-between, center);
+    height: 400px;
+  }
+}

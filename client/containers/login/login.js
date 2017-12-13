@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { locationType } from '../../types/index';
 import { emailRegex, passwordRegex } from '../../services/validation';
 import { authLogin } from '../../services/rest';
+import './login.scss';
 
 class Login extends Component {
   constructor(props) {
@@ -62,8 +63,10 @@ class Login extends Component {
     const { location } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h1>{ location.pathname === '/login' ? 'Welcome Back' : 'Sign up with us!' }</h1>
+      <form className="login" onSubmit={this.handleSubmit}>
+        <h2>{ location.pathname === '/login' ? 'Welcome Back' : 'Sign up with us!' }</h2>
+        <button> {location.pathname === '/login' ? 'Login with GitHub' : 'Signup with Github' } </button>
+        <label>Email:</label>
         <input
           name="email"
           type="email"
@@ -73,6 +76,8 @@ class Login extends Component {
           className={ isEmailError ? 'error-input' : '' }
           required
         />
+        { isEmailError && <div> must provide real email </div>}
+        <label>Password:</label>
         <input
           name="password"
           type="password"
@@ -82,6 +87,7 @@ class Login extends Component {
           className={ isPasswordError ? 'error-input' : '' }
           required
         />
+        { isPasswordError && <div> must provide password </div>}
         <button type="submit" onClick={this.handleSubmit} />
       </form>
     );

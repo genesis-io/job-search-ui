@@ -4803,7 +4803,8 @@ _reactDom2.default.render(_react2.default.createElement(
       _reactRouterDom.Switch,
       null,
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _home2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _login2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _login2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/signup', component: _login2.default })
     )
   )
 ), document.getElementById('root'));
@@ -29455,6 +29456,8 @@ var _validation = __webpack_require__(134);
 
 var _rest = __webpack_require__(135);
 
+__webpack_require__(165);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -29548,11 +29551,23 @@ var Login = function (_Component) {
 
       return _react2.default.createElement(
         'form',
-        { onSubmit: this.handleSubmit },
+        { className: 'login', onSubmit: this.handleSubmit },
         _react2.default.createElement(
-          'h1',
+          'h2',
           null,
           location.pathname === '/login' ? 'Welcome Back' : 'Sign up with us!'
+        ),
+        _react2.default.createElement(
+          'button',
+          null,
+          ' ',
+          location.pathname === '/login' ? 'Login with GitHub' : 'Signup with Github',
+          ' '
+        ),
+        _react2.default.createElement(
+          'label',
+          null,
+          'Email:'
         ),
         _react2.default.createElement('input', {
           name: 'email',
@@ -29563,6 +29578,16 @@ var Login = function (_Component) {
           className: isEmailError ? 'error-input' : '',
           required: true
         }),
+        isEmailError && _react2.default.createElement(
+          'div',
+          null,
+          ' must provide real email '
+        ),
+        _react2.default.createElement(
+          'label',
+          null,
+          'Password:'
+        ),
         _react2.default.createElement('input', {
           name: 'password',
           type: 'password',
@@ -29572,6 +29597,11 @@ var Login = function (_Component) {
           className: isPasswordError ? 'error-input' : '',
           required: true
         }),
+        isPasswordError && _react2.default.createElement(
+          'div',
+          null,
+          ' must provide password '
+        ),
         _react2.default.createElement('button', { type: 'submit', onClick: this.handleSubmit })
       );
     }
@@ -31219,6 +31249,51 @@ var historyType = exports.historyType = _propTypes2.default.shape({
   push: _propTypes2.default.func,
   replace: _propTypes2.default.func
 });
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(166);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(27)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/postcss-loader/lib/index.js!./login.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/postcss-loader/lib/index.js!./login.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(26)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".default-button, .transparent-button, .cta-button {\n  border-radius: 5px;\n  text-align: center;\n  text-decoration: none; }\n\n.transparent-button {\n  background-color: transparent;\n  border-width: 1px; }\n\n.cta-button {\n  font-weight: bold; }\n\n.default-input, .error-input {\n  border-radius: 5px; }\n\n.error-input {\n  border-color: red; }\n\n@media (min-width: 320px) {\n  .login {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    height: 400px; } }\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
