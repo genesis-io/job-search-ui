@@ -76,7 +76,8 @@ class Login extends Component {
           className={ isEmailError ? 'error-input' : '' }
           required
         />
-        { isEmailError && <div> must provide real email </div>}
+        { isEmailError &&
+        <div> must provide real email </div>}
         <label>Password:</label>
         <input
           name="password"
@@ -87,7 +88,8 @@ class Login extends Component {
           className={ isPasswordError ? 'error-input' : '' }
           required
         />
-        { isPasswordError && <div> must provide password </div>}
+        { isPasswordError &&
+        <div> must provide password </div>}
         <button type="submit" onClick={this.handleSubmit} />
       </form>
     );
