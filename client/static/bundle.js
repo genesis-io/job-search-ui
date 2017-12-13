@@ -29530,10 +29530,9 @@ var Login = function (_Component) {
       await this.validateEmail();
       await this.validatePassword();
       try {
-        if (isEmailError || isPasswordError) {
-          return;
+        if (!isEmailError && !isPasswordError && email.length && password.length) {
+          var user = await (0, _rest.authLogin)({ email: email, password: password });
         }
-        var user = await (0, _rest.authLogin)({ email: email, password: password });
       } catch (error) {
         console.log(error);
       }

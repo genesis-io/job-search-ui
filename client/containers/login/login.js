@@ -43,14 +43,15 @@ class Login extends Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    const { email, password, isEmailError, isPasswordError } = this.state;
+    const {
+      email, password, isEmailError, isPasswordError,
+    } = this.state;
     await this.validateEmail();
     await this.validatePassword();
     try {
-      if (isEmailError || isPasswordError) {
-        return;
+      if (!isEmailError && !isPasswordError && email.length && password.length) {
+        const user = await authLogin({ email, password });
       }
-      const user = await authLogin({ email, password });
     } catch (error) {
       console.log(error);
     }
