@@ -122,7 +122,7 @@ class Login extends Component {
           />
           { isEmailError &&
           <div className="invalid-form-error">
-            { apiError || 'must provide email address' }
+            { 'must provide email address' }
           </div>
           }
           { apiError &&
