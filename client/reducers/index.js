@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import { userProfile } from '../reducers/userProfileReducer';
 
-const RootReducer = () => combineReducers({
-  state: (state = [], action) => state,
+const RootReducer = combineReducers({
+  userProfile,
 });
 
 export default RootReducer;

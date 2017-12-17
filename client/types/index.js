@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+export const UPDATE_USER_PROFILE = 'UPDATE_USER_PROFILE';
+
 export const locationType = PropTypes.shape({
   pathname: PropTypes.string,
   search: PropTypes.string,

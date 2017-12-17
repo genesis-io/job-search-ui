@@ -2,9 +2,80 @@
 @import '../../styles/mixins';
 @import '../../styles/components';
 
-@include breakpoints('x-small') {
-  .login {
-    @include flex(column, space-between, center);
-    height: 400px;
+$button-width: 100%;
+
+  .login-wrapper{
+    @include simple-flex(row, center);
+    font-family: $main-font;
+    height: 100vh;
+
+    .login-form {
+
+      @include simple-flex(column, flex-start);
+      margin-top: 50px;
+
+      @include breakpoints('x-small') {
+        width: 300px;
+      }
+
+      @include breakpoints('medium') {
+        width: 450px;
+      }
+
+      button {
+        padding: $button-padding;
+        font-family: $main-font;
+      }
+
+      label {
+        color: $label-light;
+        font-weight: bold;
+        margin-bottom: 10px;
+        margin-top: 50px;
+      }
+
+      .login-form-or {
+        display: flex;
+        margin: 20px 0;
+      }
+
+      .login-form-email {
+        margin-top: 0;
+      }
+
+      hr {
+        width: 40%;
+        display: inline;
+        border: none;
+        height: 1px;
+        color: #333;
+        background-color: lightgray;
+      }
+
+      input {
+        @include default-input;
+      }
+
+      &-header {
+        align-self: center;
+      }
+
+      &-github {
+        background-color: black;
+        color: white;
+      }
+
+      &-sign-in {
+        background-color: $light-attention;
+        color: white;
+        margin-top: 50px;
+      }
+
+      .invalid-form-error {
+        margin-top: 5px;
+        color: red;
+        font-weight: bold;
+      }
+
+    }
   }
-}

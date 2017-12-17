@@ -1,7 +1,16 @@
+@import 'variables';
+
 .default-button {
-  border-radius: 5px;
+  border-radius: $button-radius;
   text-align: center;
   text-decoration: none;
+  border-style: none;
+}
+
+.default-input {
+  border-radius: $button-radius;
+  text-decoration: none;
+  padding: $button-padding
 }
 
 .transparent-button {
@@ -15,11 +24,11 @@
   font-weight: bold;
 }
 
-.default-input {
-  border-radius: 5px;
-}
-
 .error-input {
   @extend .default-input;
-  border-color: red;
+  border-color: red !important;
+}
+
+.invalid-form-error {
+  font-size: 10px;
 }

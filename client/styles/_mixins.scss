@@ -30,3 +30,17 @@
   align-items: $alignment;
 }
 
+@mixin simple-flex($direction, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+
+@mixin default-input {
+  border-radius: $button-radius;
+  padding: $button-padding;
+  border-style: none;
+  border: 1px solid #7b8194;
+
+}
+
