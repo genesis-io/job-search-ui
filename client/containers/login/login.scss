@@ -7,12 +7,23 @@ $button-width: 100%;
   .login-wrapper{
     @include simple-flex(row, center);
     font-family: $main-font;
-    height: 100vh;
+
+    .login-wrapper-header {
+      @include flex(row, flex-start, center);
+      padding-left: 30px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      background-color: white;
+      box-shadow: 0 0 4px rgba(24,35,62,.15);
+      height: 60px;
+      font-size: $font-size-large;
+    }
 
     .login-form {
 
       @include simple-flex(column, flex-start);
-      margin-top: 50px;
+      margin-top: 120px;
 
       @include breakpoints('x-small') {
         width: 300px;
@@ -63,6 +74,11 @@ $button-width: 100%;
       &-github {
         background-color: black;
         color: white;
+
+        img {
+          height: 29px;
+        }
+
       }
 
       &-sign-in {

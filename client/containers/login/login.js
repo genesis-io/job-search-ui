@@ -7,6 +7,7 @@ import { emailRegex, passwordRegex } from '../../services/validation';
 import { authLogin, authSignup } from '../../services/rest';
 import './login.scss';
 import '../../styles/_components.scss';
+import githubImage from '../../static/assets/githubimage.png';
 
 class Login extends Component {
   constructor(props) {
@@ -97,12 +98,13 @@ class Login extends Component {
       isEmailError, isPasswordError, login, apiError,
     } = this.state;
     const { location } = this.props;
-
     return (
       <div className="login-wrapper">
+        <header className="login-wrapper-header">Job Search</header>
         <form className="login-form" onSubmit={this.handleSubmit}>
           <h3 className="login-form-header">{ location.pathname === '/login' ? 'Welcome Back' : 'Sign up with us!' }</h3>
           <button type="submit" className="default-button login-form-github">
+            <img src={githubImage} />
             {login ? 'Login with GitHub' : 'Signup with Github' }
           </button>
           <div className="login-form-or">

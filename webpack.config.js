@@ -17,7 +17,6 @@ if (process.env.NODE_ENV === 'production') {
   }));
 }
 
-
 module.exports = {
   entry: {
     main: './client/index.js',
@@ -44,7 +43,14 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader',
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'client/static/assets/',
+              publicPath: 'client/static/assets/',
+            },
+          },
           {
             loader: 'image-webpack-loader',
             options: {
