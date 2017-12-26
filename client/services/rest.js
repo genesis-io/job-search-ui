@@ -1,12 +1,28 @@
-import axios from 'axios';
+import { apiCall, actionApiCall } from './utils';
 
-const localHost = 'http://localhost:3000';
-const authUrl = '/api/auth';
-const userUrl = 'api/user';
-const loginUrl = `${localHost}${authUrl}/login`;
-const signUpUrl = `${localHost}${authUrl}/signup`;
-const userProfileUrl = `${localHost}${userUrl}/signup`;
 
-export const authSignup = payload => axios.post(signUpUrl, payload);
+export const authSignup = (data, dispatch) => {
+  const config = {
+    url: 'api/auth/signup',
+    method: 'POST',
+    data,
+  };
+  return apiCall(config, dispatch);
+};
 
-export const authLogin = payload => axios.post(loginUrl, payload);
+export const authLogin = ({
+  data, dispatch, successCB, message,
+}) => {
+  const networkRequestConfig = {
+    url: 'api/auth/login',
+    method: 'POST',
+    data,
+  };
+  const config = {
+    config: networkRequestConfig,
+    dispatch,
+    successCB,
+    message,
+  };
+  return actionApiCall(config);
+};

@@ -74,14 +74,19 @@ class Login extends Component {
     const {
       email, password, login,
     } = this.state;
-    const { updateUserProfile } = this.props;
-    const grabUserInfo = login ? authLogin : authSignup;
+    const { dispatch } = this.props;
+    const loginConfig = {
+      successCB: updateUserProfile,
+      message: 'user succesfully logged in',
+      data: { email, password },
+      dispatch,
+    };
+    const sendUserInfo = login ? authLogin.bind(null, loginConfig) : authSignup.bind(null, { email, password }, dispatch);
     await this.validateEmail();
     await this.validatePassword();
     try {
       if (this.shouldLetUserSendRequest()) {
-        const user = await grabUserInfo({ email, password });
-        updateUserProfile(user);
+        await sendUserInfo();
       }
     } catch (error) {
       if (login) {
@@ -160,13 +165,14 @@ class Login extends Component {
 
 Login.propTypes = {
   location: locationType,
-  updateUserProfile: PropTypes.func.isRequired,
+  updateUserProfile: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   user: state.userProfile,
+  network: state.network,
 });
 
 
-export default connect(mapStateToProps, { updateUserProfile })(Login);
+export default connect(mapStateToProps)(Login);
 
