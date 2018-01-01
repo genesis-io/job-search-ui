@@ -10,12 +10,12 @@ $button-width: 100%;
 
     .login-wrapper-header {
       @include flex(row, flex-start, center);
+      @include bottom-shadow;
       padding-left: 30px;
       width: 100%;
       position: fixed;
       top: 0;
       background-color: white;
-      box-shadow: 0 0 4px rgba(24,35,62,.15);
       height: 60px;
       font-size: $font-size-large;
     }

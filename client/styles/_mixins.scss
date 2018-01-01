@@ -41,6 +41,9 @@
   padding: $button-padding;
   border-style: none;
   border: 1px solid #7b8194;
+}
 
+@mixin bottom-shadow {
+  box-shadow: 0 0 4px rgba(24,35,62,.15);
 }
 

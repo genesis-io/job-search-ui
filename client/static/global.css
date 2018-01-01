@@ -455,4 +455,7 @@ html, body {
   font-family: 'Lato', sans-serif;
 }
 
+.hidden {
+  display: none;
+}
 
