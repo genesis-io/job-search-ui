@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Joi from 'joi';
 import { updateUserProfile } from '../../actions/userProfile';
 import { locationType } from '../../types/index';
-import { emailRegex, passwordRegex } from '../../services/validation';
+import { loginSchema, extractErrorMessage } from '../../services/validation';
 import { authLogin, authSignup } from '../../services/rest';
 import './login.scss';
 import '../../styles/_components.scss';
@@ -21,8 +22,7 @@ class Login extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.validateEmail = this.validateEmail.bind(this);
-    this.validatePassword = this.validatePassword.bind(this);
+    this.validateInput = this.validateInput.bind(this);
     this.clearForm = this.clearForm.bind(this);
   }
 
@@ -42,22 +42,28 @@ class Login extends Component {
     return !isEmailError && !isPasswordError && email.length && password.length;
   }
 
-  validateEmail() {
-    const { email } = this.state;
-    if (!emailRegex.test(email) || !email.length) {
-      this.setState({ isEmailError: true });
+
+  validateInput(input, field) {
+    const result = Joi.validate({ [field]: input }, loginSchema);
+    let property;
+    if (result.error) {
+      property = this.determineField(result.error);
+      const errorMessage = extractErrorMessage(result.error.message);
+      this.setState({ [property]: errorMessage });
     } else {
-      this.setState({ isEmailError: false });
+      property = this.determineField(field);
+      this.setState({ [property]: false });
     }
   }
 
-  validatePassword() {
-    const { password } = this.state;
-    if (!passwordRegex.test(password) || !password.length) {
-      this.setState({ isPasswordError: true });
+  determineField(error) {
+    let errorType;
+    if (typeof error === 'object') {
+      errorType = error.message.indexOf('email') > 0 ? 'isEmailError' : 'isPasswordError';
     } else {
-      this.setState({ isPasswordError: false });
+      errorType = error === 'email' ? 'isEmailError' : 'isPasswordError';
     }
+    return errorType;
   }
 
   handleChange(event) {
@@ -81,12 +87,14 @@ class Login extends Component {
       data: { email, password },
       dispatch,
     };
-    const sendUserInfo = login ? authLogin.bind(null, loginConfig) : authSignup.bind(null, { email, password }, dispatch);
-    await this.validateEmail();
-    await this.validatePassword();
+    const sendUserInfo = login ?
+      authLogin.bind(null, loginConfig) :
+      authSignup.bind(null, { email, password }, dispatch);
+
     try {
       if (this.shouldLetUserSendRequest()) {
-        await sendUserInfo();
+        sendUserInfo();
+        this.clearForm();
       }
     } catch (error) {
       if (login) {
@@ -94,13 +102,13 @@ class Login extends Component {
       } else {
         this.setState({ apiError: 'email exists already' });
       }
+      this.clearForm();
     }
-    this.clearForm();
   }
 
   render() {
     const {
-      isEmailError, isPasswordError, login, apiError,
+      isEmailError, isPasswordError, login, apiError, email, password,
     } = this.state;
     const { location } = this.props;
     return (
@@ -122,7 +130,7 @@ class Login extends Component {
             name="email"
             type="email"
             onChange={this.handleChange}
-            onBlur={this.validateEmail}
+            onBlur={() => this.validateInput(email, 'email')}
             value={this.state.email}
             className={ isEmailError ? 'error-input' : '' }
             required
@@ -142,7 +150,7 @@ class Login extends Component {
             name="password"
             type="password"
             onChange={this.handleChange}
-            onBlur={this.validatePassword}
+            onBlur={() => this.validateInput(password, 'password')}
             value={this.state.password}
             className={ isPasswordError ? 'error-input' : '' }
             required

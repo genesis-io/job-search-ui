@@ -1,10 +1,13 @@
-export const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-export const passwordRegex = /^[a-zA-Z0-9]{3,30}$/;
+import Joi from 'joi';
 
-// export const validateRegex = (context, regex) => {
-//   if (!regex.test(email) || !email.length) {
-//     context.setState({ isEmailError: true });
-//   } else {
-//     context.setState({ isEmailError: false });
-//   }
-// }
+export const loginSchema = Joi.object().keys({
+  email: Joi.string().email(),
+  password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
+});
+
+export const extractErrorMessage = (error) => {
+  const index1 = error.indexOf('[');
+  const index2 = error.indexOf(']');
+  return error.substring((index1 + 1), index2);
+};
+

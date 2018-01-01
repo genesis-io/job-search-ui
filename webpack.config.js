@@ -74,6 +74,11 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      joi: 'joi-browser',
+    },
+  },
   plugins: [
     new ExtractTextPlugin('./client/styles/main.css', {
       allChunks: true,
