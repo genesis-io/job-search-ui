@@ -1,5 +1,7 @@
 import { apiCall, actionApiCall } from './utils';
 
+export const ctaBackground = 'https://s3-us-west-1.amazonaws.com/jobsearchhr/jobsearchimage2.jpg'
+
 
 export const authSignup = (data, dispatch) => {
   const config = {
