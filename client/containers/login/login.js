@@ -23,6 +23,7 @@ class Login extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validateInput = this.validateInput.bind(this);
+    this.validateForm = this.validateForm.bind(this);
     this.clearForm = this.clearForm.bind(this);
   }
 
@@ -42,28 +43,21 @@ class Login extends Component {
     return !isEmailError && !isPasswordError && email.length && password.length;
   }
 
-
-  validateInput(input, field) {
-    const result = Joi.validate({ [field]: input }, loginSchema);
-    let property;
-    if (result.error) {
-      property = this.determineField(result.error);
-      const errorMessage = extractErrorMessage(result.error.message);
-      this.setState({ [property]: errorMessage });
-    } else {
-      property = this.determineField(field);
-      this.setState({ [property]: false });
-    }
+  validateForm() {
+    const { email, password } = this.state;
+    this.validateInput(email, 'email', 'isEmailError');
+    this.validateInput(password, 'password', 'isPasswordError');
   }
 
-  determineField(error) {
-    let errorType;
-    if (typeof error === 'object') {
-      errorType = error.message.indexOf('email') > 0 ? 'isEmailError' : 'isPasswordError';
+
+  validateInput(input, field, errorField) {
+    const result = Joi.validate({ [field]: input }, loginSchema);
+    if (result.error) {
+      const errorMessage = extractErrorMessage(result.error.message);
+      this.setState({ [errorField]: errorMessage });
     } else {
-      errorType = error === 'email' ? 'isEmailError' : 'isPasswordError';
+      this.setState({ [errorField]: false });
     }
-    return errorType;
   }
 
   handleChange(event) {
@@ -89,11 +83,13 @@ class Login extends Component {
     };
     const sendUserInfo = login ?
       authLogin.bind(null, loginConfig) :
-      authSignup.bind(null, { email, password }, dispatch);
+      authSignup.bind(null, { email, password }, dispatch, 'succesful signup');
+
+    await this.validateForm();
 
     try {
       if (this.shouldLetUserSendRequest()) {
-        sendUserInfo();
+        await sendUserInfo();
         this.clearForm();
       }
     } catch (error) {
@@ -130,8 +126,8 @@ class Login extends Component {
             name="email"
             type="email"
             onChange={this.handleChange}
-            onBlur={() => this.validateInput(email, 'email')}
-            value={this.state.email}
+            onBlur={() => this.validateInput(email, 'email', 'isEmailError')}
+            value={email}
             className={ isEmailError ? 'error-input' : '' }
             required
           />
@@ -150,8 +146,8 @@ class Login extends Component {
             name="password"
             type="password"
             onChange={this.handleChange}
-            onBlur={() => this.validateInput(password, 'password')}
-            value={this.state.password}
+            onBlur={() => this.validateInput(password, 'password', 'isPasswordError')}
+            value={password}
             className={ isPasswordError ? 'error-input' : '' }
             required
           />

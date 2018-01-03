@@ -18,12 +18,12 @@ export const apiCall = (config, dispatch) => {
   dispatch(requestInProgress(true));
   return axios.request(config)
     .then((res) => {
-      dispatch(requestInProgress(false));
+      dispatch(requestSuccess('succesful network request'));
       return res.data;
     })
     .catch((error) => {
-      dispatch(requestInProgress(false));
-      dispatch(requestFailure(error));
+      dispatch(requestFailure(error.message));
+      throw new Error(error);
     });
 };
 
@@ -37,7 +37,8 @@ export const actionApiCall = ({
       dispatch(requestSuccess(message));
     })
     .catch((error) => {
-      dispatch(requestFailure(error));
+      dispatch(requestFailure(error.message));
+      throw new Error(error);
     });
 };
 
