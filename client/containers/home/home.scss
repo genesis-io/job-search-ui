@@ -27,11 +27,12 @@ $z-index: 5;
     &-sub {
       font-weight: 300;
       font-size: 1.8em;
+      text-align: center;
       z-index: $z-index;
     }
 
     &-overlay {
-      background-color: rgba(0,0,0, 0.3);
+      background-color: rgba(0,0,0, 0.6);
       position: absolute;
       height: 100%;
       width: 100%;

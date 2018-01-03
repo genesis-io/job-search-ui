@@ -2,7 +2,6 @@
 @import '../../styles/mixins';
 
 .nav {
-  @include simple-flex(column, space-between);
   @include bottom-shadow;
   width: 100vw;
   min-height: 100px;
@@ -46,6 +45,7 @@
   .link-home-container {
     @include flex(row, space-between, center);
     flex: 1;
+    margin-top: 25px;
   }
 
   .nav-link-holder {
@@ -87,6 +87,7 @@
 
     .link-home-container {
       flex: none;
+      margin-top: 0;
     }
 
     .link-container {
