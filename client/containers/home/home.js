@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../navbar/navbar';
+import InfoCard from '../../components/infoCard/infoCard';
 import './home.scss';
 
 
@@ -11,8 +12,12 @@ const Home = () => (
       <h3 className="home-cta-sub">Plan, Map, and execute your way to success.</h3>
       <div className="home-cta-overlay" />
     </div>
+    <div className="home-info">
+      <InfoCard logo="fa-chrome" color="green" header="what in the fuck are you doing ?" message="stay strong" />
+      <InfoCard logo="fa-chrome" color="blue" header="what in the fuck are you doing ?" message="stay strong" />
+    </div>
   </div>
-)
+);
 
 export default Home;
 

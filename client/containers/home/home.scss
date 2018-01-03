@@ -39,4 +39,8 @@ $z-index: 5;
     }
 
   }
+
+  &-info {
+    @include flex(row, center, center);
+  }
 }

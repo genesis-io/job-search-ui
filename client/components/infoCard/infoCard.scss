@@ -1,0 +1,7 @@
+@import '../../styles/mixins';
+
+.info-card {
+  @include flex(column, center, center);
+  color: white;
+  height: 200px;
+}
