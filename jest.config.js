@@ -14,5 +14,10 @@ module.exports = {
     '!**webpack.config.js**',
     '!**/client/static/bundle.js**',
   ],
+  moduleNameMapper: {
+    '^.+\\.(css|scss)$': 'identity-obj-proxy',
+  },
   notify: true,
+  setupFiles: ['./config/testSetup.js'],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
 };
