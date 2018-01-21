@@ -1,12 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render home component 1`] = `
+exports[`Login Component, /login render home component 1`] = `
 <Connect(Login)
-  location="/login"
+  location={
+    Object {
+      "pathname": "/login",
+    }
+  }
 >
   <Login
     dispatch={[Function]}
-    location="/login"
+    location={
+      Object {
+        "pathname": "/login",
+      }
+    }
   >
     <div
       className="login-wrapper"
@@ -23,13 +31,13 @@ exports[`render home component 1`] = `
         <h3
           className="login-form-header"
         >
-          Sign up with us!
+          Welcome Back
         </h3>
         <button
           className="default-button login-form-github"
           type="submit"
         >
-          Signup with Github
+          Login with GitHub
         </button>
         <div
           className="login-form-or"
@@ -70,7 +78,7 @@ exports[`render home component 1`] = `
           type="submit"
         >
            
-          Register
+          Log In
         </button>
       </form>
     </div>

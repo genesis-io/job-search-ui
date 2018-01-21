@@ -158,7 +158,7 @@ class Login extends Component {
             type="submit"
             onClick={this.handleSubmit}
             className="default-button login-form-sign-in"
-          > { login ? 'Log In' : 'Register' }</button>
+          > {login ? 'Log In' : 'Register'}</button>
         </form>
       </div>
     );

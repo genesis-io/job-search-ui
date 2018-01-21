@@ -5,24 +5,31 @@ import Login from './login';
 import { mountWithStore } from '../../../config/testHelpers';
 
 let wrapper;
+let store;
 
 beforeAll(() => {
   const testState = {
     user: {},
-  }
-  const store = createMockStore(testState)
-  wrapper = mountWithStore(<Login location={'/login'} />, store);
-})
-
-test('render home component', () => {
-  expect(wrapper).toMatchSnapshot();
+  };
+  store = createMockStore(testState);
+  wrapper = mountWithStore(<Login location={{ pathname: '/login' }} />, store);
 });
 
-test('it should render login button if url is jobsearch.com/login', () => {
-  expect(wrapper.find('login-form-sign-in').text()).toEqual('Log In');
-})
+describe('Login Component, /login', () => {
+  test('render home component', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 
-// test('it should render register button if url is jobsearch.com/signup', () => {
-//   wrapper = mountWithStore(<Login location={'/signup'} />, store);
-//   expect(wrapper.find('login-form-sign-in').text()).toEqual('Register');
-// })
+  test('should render login button', () => {
+    expect(wrapper.find('.login-form-sign-in').text()).toEqual(' Log In');
+  });
+
+  test('should let user know if email is not valid', () => {
+    // wrapper.setState({
+    //   email: 'notavalidemail',
+    //   password: 'password',
+    // });
+    // wrapper.find('login-form-sign-in').simulate('click');
+    // expect(wrapper.find('error-input')).toHaveLength(1);
+  });
+});
