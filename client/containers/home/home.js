@@ -14,10 +14,12 @@ const Home = () => (
     </div>
     <div className="home-info">
       <InfoCard
-        logo="fa-chrome"
+        logo="fa-github"
         color={primaryColor}
-        header="what in the fuck are you doing ?"
-        message="stay strong" />
+        header="Easy Maintenance"
+        message="Use a platform that can help keep track of your growth and change over time.
+         Sign up or login with your github account to ease maintaining your tracked work.
+         " />
       <InfoCard
         logo="fa-chrome"
         color={secondaryColor}
