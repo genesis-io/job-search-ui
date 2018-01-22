@@ -1,7 +1,7 @@
 import React from 'react';
-import Home from './home';
+import InfoCard from './infoCard';
 
 test('render home component', () => {
-  const wrapper = shallow(<Home />);
+  const wrapper = shallow(<InfoCard />);
   expect(wrapper).toMatchSnapshot();
 });

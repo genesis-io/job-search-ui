@@ -2,15 +2,139 @@
 @import '../../styles/mixins';
 
 .nav {
-  @include breakpoints('x-small') {
-    width: 100vw;
-    height: 100px;
-    position: fixed;
-    top: 0;
-    background: $primary-linear;
-    color: white;
-    button {
+  @include bottom-shadow;
+  width: 100vw;
+  min-height: 100px;
+  position: fixed;
+  top: 0;
+  background: $primary-navbar;
+  padding:0 10px;
+  z-index: 6;
 
+  a {
+    font-size: $font-size-medium;
+    padding: 10px 25px;
+    color: black;
+    &:hover {
+      color: $primary;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .link-container {
+    @include flex(column, center, flex-start);
+    width: 100%;
+    a {
+      width: 100%;
+      text-decoration: none;
+      border-bottom: 1px solid lightgray;
+      padding: 20px 25px;
+    }
+    &.features {
+      a {
+        width: 100%;
+        font-size: $font-size-medium;
+        font-weight: 300;
+        text-decoration: none;
+        border-bottom: 1px solid lightgray;
+        padding: 20px 25px;
+      }
+    }
+  }
+
+  .link-home-container {
+    @include flex(row, space-between, center);
+    flex: 1;
+    margin-top: 25px;
+  }
+
+  .nav-link-holder {
+    display: none;
+    flex: 0;
+    flex-direction: column;
+    &.show-flex-display {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  .link-home {
+    margin-left: 0;
+    font-size: $font-size-large;
+    color: black;
+    font-weight: 400;
+  }
+
+  .cta-button {
+    color: $secondary;
+    text-align: left;
+  }
+
+  .transparent-button {
+    color: black;
+    text-align: left;
+  }
+
+  .dropdown {
+    border-style: none;
+    color: $primary;
+  }
+
+
+
+  @include breakpoints('medium') {
+    @include flex(row, space-between, center);
+
+    .link-home-container {
+      flex: none;
+      margin-top: 0;
+    }
+
+    .link-container {
+      @include flex(row, center, center);
+      width: auto;
+      a {
+        border-bottom: none;
+        width: auto;
+        padding: 10px 15px;
+      }
+      &.features {
+        margin: 0 auto;
+        a {
+          border-bottom: none;
+          width: auto;
+          padding: 10px 15px;
+        }
+      }
+    }
+
+    .nav-link-holder {
+      @include flex(row, space-between, center);
+      flex: 1;
+    }
+
+    a {
+      font-size: $font-size-medium;
+    }
+
+    .cta-button {
+      background-color: $primary;
+      font-weight: 400;
+      padding: 10px 15px;
+      color: black;
+    }
+
+    .transparent-button {
+      margin-left: 30px;
+      padding: 10px 15px;
+    }
+
+    .link-home {
+      margin-left: 0;
+    }
+
+    .dropdown {
+      display: none;
     }
   }
 }

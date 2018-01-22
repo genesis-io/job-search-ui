@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render home component 1`] = `
+<div
+  className="home"
+>
+  <Connect(NavBar) />
+  <div
+    className="home-cta"
+  >
+    <h1
+      className="home-cta-header"
+    >
+      Keep Track of everything for your job search
+    </h1>
+    <h3
+      className="home-cta-sub"
+    >
+      Plan, Map, and execute your way to success.
+    </h3>
+    <div
+      className="home-cta-overlay"
+    />
+  </div>
+  <div
+    className="home-info"
+  >
+    <InfoCard
+      color="#0090d9"
+      header="what in the fuck are you doing ?"
+      logo="fa-chrome"
+      message="stay strong"
+    />
+    <InfoCard
+      color="#de7c01"
+      header="what in the fuck are you doing ?"
+      logo="fa-chrome"
+      message="stay strong"
+    />
+  </div>
+</div>
+`;

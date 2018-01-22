@@ -1,7 +1,7 @@
 import React from 'react';
-import Home from './home';
+import ErrorBoundary from './errorBoundaries';
 
 test('render home component', () => {
-  const wrapper = shallow(<Home />);
+  const wrapper = shallow(<ErrorBoundary />);
   expect(wrapper).toMatchSnapshot();
 });

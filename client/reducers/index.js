@@ -1,7 +1,10 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
+import { userProfile } from '../reducers/userProfileReducer';
+import { network } from '../reducers/networkReducer';
 
-const RootReducer = () => combineReducers({
-  state: (state = [], action) => state
-})
+const RootReducer = combineReducers({
+  userProfile,
+  network,
+});
 
 export default RootReducer;

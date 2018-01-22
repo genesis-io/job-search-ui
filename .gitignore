@@ -59,6 +59,7 @@ typings/
 
 .idea/
 
-./client/static/bundle.js
+client/static/bundle.js
+client/static/bundle.js.map
 
 coverage/
