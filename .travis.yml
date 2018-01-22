@@ -3,6 +3,6 @@ node_js: node
 install:
   - npm install
 script:
-  - npm run start:rest-server
+  - npm run start:rest-server &
   - sleep 10
   - npm run test
