@@ -175,6 +175,5 @@ const mapStateToProps = state => ({
   network: state.network,
 });
 
-
 export default connect(mapStateToProps)(Login);
 

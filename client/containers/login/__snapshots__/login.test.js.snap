@@ -1,87 +1,139 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Component, /login render home component 1`] = `
-<Connect(Login)
-  location={
-    Object {
-      "pathname": "/login",
-    }
-  }
+exports[`Login Component, /login should render login component 1`] = `
+<div
+  className="login-wrapper"
 >
-  <Login
-    dispatch={[Function]}
-    location={
-      Object {
-        "pathname": "/login",
-      }
-    }
+  <header
+    className="login-wrapper-header"
   >
-    <div
-      className="login-wrapper"
+    Job Search
+  </header>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <h3
+      className="login-form-header"
     >
-      <header
-        className="login-wrapper-header"
-      >
-        Job Search
-      </header>
-      <form
-        className="login-form"
-        onSubmit={[Function]}
-      >
-        <h3
-          className="login-form-header"
-        >
-          Welcome Back
-        </h3>
-        <button
-          className="default-button login-form-github"
-          type="submit"
-        >
-          Login with GitHub
-        </button>
-        <div
-          className="login-form-or"
-        >
-          <hr />
-          or
-          <hr />
-        </div>
-        <label
-          className="login-form-email"
-        >
-          Email Address
-        </label>
-        <input
-          className=""
-          name="email"
-          onBlur={[Function]}
-          onChange={[Function]}
-          required={true}
-          type="email"
-          value=""
-        />
-        <label>
-          Password:
-        </label>
-        <input
-          className=""
-          name="password"
-          onBlur={[Function]}
-          onChange={[Function]}
-          required={true}
-          type="password"
-          value=""
-        />
-        <button
-          className="default-button login-form-sign-in"
-          onClick={[Function]}
-          type="submit"
-        >
-           
-          Log In
-        </button>
-      </form>
+      Welcome Back
+    </h3>
+    <button
+      className="default-button login-form-github"
+      type="submit"
+    >
+      Login with GitHub
+    </button>
+    <div
+      className="login-form-or"
+    >
+      <hr />
+      or
+      <hr />
     </div>
-  </Login>
-</Connect(Login)>
+    <label
+      className="login-form-email"
+    >
+      Email Address
+    </label>
+    <input
+      className=""
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      required={true}
+      type="email"
+      value=""
+    />
+    <label>
+      Password:
+    </label>
+    <input
+      className=""
+      name="password"
+      onBlur={[Function]}
+      onChange={[Function]}
+      required={true}
+      type="password"
+      value=""
+    />
+    <button
+      className="default-button login-form-sign-in"
+      onClick={[Function]}
+      type="submit"
+    >
+       
+      Log In
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Login Component, /signup should render signp component 1`] = `
+<div
+  className="login-wrapper"
+>
+  <header
+    className="login-wrapper-header"
+  >
+    Job Search
+  </header>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <h3
+      className="login-form-header"
+    >
+      Sign up with us!
+    </h3>
+    <button
+      className="default-button login-form-github"
+      type="submit"
+    >
+      Signup with Github
+    </button>
+    <div
+      className="login-form-or"
+    >
+      <hr />
+      or
+      <hr />
+    </div>
+    <label
+      className="login-form-email"
+    >
+      Email Address
+    </label>
+    <input
+      className=""
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      required={true}
+      type="email"
+      value=""
+    />
+    <label>
+      Password:
+    </label>
+    <input
+      className=""
+      name="password"
+      onBlur={[Function]}
+      onChange={[Function]}
+      required={true}
+      type="password"
+      value=""
+    />
+    <button
+      className="default-button login-form-sign-in"
+      onClick={[Function]}
+      type="submit"
+    >
+       
+      Register
+    </button>
+  </form>
+</div>
 `;
