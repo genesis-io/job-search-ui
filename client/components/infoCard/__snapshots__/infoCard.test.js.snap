@@ -16,5 +16,15 @@ exports[`render home component 1`] = `
   />
   <h1 />
   <p />
+  <Link
+    replace={false}
+    style={
+      Object {
+        "color": Array [
+          undefined,
+        ],
+      }
+    }
+  />
 </div>
 `;
