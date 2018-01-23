@@ -18,13 +18,20 @@ const Home = () => (
         color={primaryColor}
         header="Easy Maintenance"
         message="Use a platform that can help keep track of your growth and change over time.
-         Sign up or login with your github account to ease maintaining your tracked work.
-         " />
+         Sign up or login with your github account to ease maintaining your tracked work."
+        buttonText="Signup!"
+        location="/signup"
+      />
       <InfoCard
-        logo="fa-chrome"
+        logo="fa-smile-o"
         color={secondaryColor}
-        header="what in the fuck are you doing ?"
-        message="stay strong" />
+        header="Simple for you."
+        message="We make it simple for you. we've made a one stop shop for you
+         to keep logs of work, track jobs and companies you're interested in
+          and save projects to show employers."
+        buttonText="Learn More"
+        location="/signup"
+      />
     </div>
   </div>
 );
