@@ -73,7 +73,7 @@ class Login extends Component {
     const {
       email, password, login,
     } = this.state;
-    const { dispatch } = this.props;
+    const { dispatch, history } = this.props;
     const sendUserInfo = login ?
       authLogin.bind(null, { email, password }, dispatch, 'succesful login') :
       authSignup.bind(null, { email, password }, dispatch, 'succesful signup');
@@ -85,6 +85,7 @@ class Login extends Component {
         const response = await sendUserInfo();
         dispatch(updateUserProfile(response));
         this.clearForm();
+        history.push('/dashboard');
       }
     } catch (error) {
       if (login) {
