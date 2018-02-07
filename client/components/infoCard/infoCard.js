@@ -17,7 +17,9 @@ const InfoCard = ({
       <i className={logoClasses} />
       <h1>{ header }</h1>
       <p>{ message }</p>
-      <Link style={{ color: [color] }} to={location}>{ buttonText }</Link>
+      { buttonText &&
+        <Link style={{ color: [color] }} to={location}>{ buttonText }</Link>
+      }
     </div>
   );
 };
