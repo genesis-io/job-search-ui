@@ -26,16 +26,20 @@ exports[`render home component 1`] = `
     className="home-info"
   >
     <InfoCard
+      buttonText="Signup!"
       color="#0090d9"
-      header="what in the fuck are you doing ?"
-      logo="fa-chrome"
-      message="stay strong"
+      header="Easy Maintenance"
+      location="/signup"
+      logo="fa-github"
+      message="Use a platform that can help keep track of your growth and change over time. Sign up or login with your github account to ease maintaining your tracked work."
     />
     <InfoCard
+      buttonText="Learn More"
       color="#de7c01"
-      header="what in the fuck are you doing ?"
-      logo="fa-chrome"
-      message="stay strong"
+      header="Simple for you."
+      location="/signup"
+      logo="fa-smile-o"
+      message="We make it simple for you. we've made a one stop shop for you to keep logs of work, track jobs and companies you're interested in and save projects to show employers."
     />
   </div>
 </div>

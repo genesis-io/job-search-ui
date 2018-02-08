@@ -73,23 +73,19 @@ class Login extends Component {
     const {
       email, password, login,
     } = this.state;
-    const { dispatch } = this.props;
-    const loginConfig = {
-      successCB: updateUserProfile,
-      message: 'user succesfully logged in',
-      data: { email, password },
-      dispatch,
-    };
+    const { dispatch, history } = this.props;
     const sendUserInfo = login ?
-      authLogin.bind(null, loginConfig) :
+      authLogin.bind(null, { email, password }, dispatch, 'succesful login') :
       authSignup.bind(null, { email, password }, dispatch, 'succesful signup');
 
     await this.validateForm();
 
     try {
       if (this.shouldLetUserSendRequest()) {
-        await sendUserInfo();
+        const response = await sendUserInfo();
+        dispatch(updateUserProfile(response));
         this.clearForm();
+        history.push('/dashboard');
       }
     } catch (error) {
       if (login) {

@@ -47,3 +47,7 @@
   box-shadow: 0 0 4px rgba(24,35,62,.15);
 }
 
+@mixin big-shadow {
+  box-shadow: 0 20px 28px rgba(51,62,72,0.05), 0 20px 26px rgba(51,62,72,0.1);
+}
+
