@@ -12,8 +12,8 @@ describe('network actions', () => {
       message: '',
     }
     expect(networkActions.requestInProgress(true)).toEqual(expectedAction);
-    expectedAction.inProgress = true;
-    expect(networkActions.requestInProgress(true)).toEqual(expectedAction);
+    expectedAction.inProgress = false;
+    expect(networkActions.requestInProgress(false)).toEqual(expectedAction);
   });
 
   test('should create an action to let store know request failed', () => {
