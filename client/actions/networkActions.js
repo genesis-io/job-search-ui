@@ -8,6 +8,8 @@ import {
 export const requestInProgress = inProgress => ({
   type: REQUEST_IN_PROGRESS,
   inProgress,
+  status: '',
+  message: '',
 });
 
 export const requestFailure = error => ({
