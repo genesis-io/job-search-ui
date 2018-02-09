@@ -1,6 +1,10 @@
-import { UPDATE_USER_PROFILE, AUTHENTICATE_USER } from '../types/index';
+import {
+  UPDATE_USER_PROFILE,
+  AUTHENTICATE_USER,
+  defaultUserState,
+} from '../types/index';
 
-export const userProfile = (state = {}, action) => {
+export const userProfile = (state = defaultUserState, action) => {
   switch (action.type) {
     case UPDATE_USER_PROFILE:
       return {

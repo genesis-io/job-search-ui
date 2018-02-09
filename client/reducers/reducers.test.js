@@ -5,6 +5,7 @@ import * as types from '../types/index';
 describe('network reducers', () => {
   const {
     defaultNetworkState,
+    defaultUserState,
     REQUEST_IN_PROGRESS,
     REQUEST_FAILURE,
     REQUEST_SUCCESS,
@@ -42,7 +43,7 @@ describe('network reducers', () => {
     })).toEqual(expectedState);
   });
 
-  test('should handle REQUEST_FAILURE', () => {
+  test('should handle REQUEST_SUCCESS', () => {
     const expectedState = {
       inProgress: false,
       message: 'network request successful',
@@ -50,10 +51,32 @@ describe('network reducers', () => {
     };
 
     expect(network(defaultNetworkState, {
-      type: REQUEST_FAILURE,
+      type: REQUEST_SUCCESS,
       inProgress: false,
       message: 'network request successful',
       status: REQUEST_SUCCESS,
     })).toEqual(expectedState);
   });
 });
+
+describe('user profile reducers', () => {
+  const { UPDATE_USER_PROFILE, defaultUserState } = types;
+
+  test('should return default state if undefined', () => {
+    expect(userProfile(undefined, { })).toEqual(defaultUserState);
+  })
+
+  test('should handle UPDATE_USER_PROFILE', () => {
+    const expectedState = {
+      user: {
+        email: 'user@gmail.com',
+      },
+    };
+    expect(userProfile({}, {
+      type: UPDATE_USER_PROFILE,
+      user: {
+        email: 'user@gmail.com',
+      },
+    })).toEqual(expectedState);
+  });
+})
