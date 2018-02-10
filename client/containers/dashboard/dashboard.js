@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import authentication from '../../higher-order-components/authentication/authentication';
+import SideBar from '../../components/sidebar/sidebar';
 
 
 class Dashboard extends Component {
@@ -11,7 +11,9 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>Dashboard</div>
+      <div className="dashboard">
+        <SideBar/>
+      </div>
     );
   }
 }

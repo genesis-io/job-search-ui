@@ -1,0 +1,25 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+
+.sidebar {
+  @include flex(column, flex-start, center);
+  background-color: $primary;
+  height: 100vh;
+  width: 65px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .navigation-icon {
+    width: 60%;
+    height: 40px;
+    margin: 15px 0;
+  }
+
+  i {
+    font-size: 24px;
+    color: white;
+  }
+}

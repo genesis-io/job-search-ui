@@ -14,7 +14,7 @@ export const defaultNetworkState = {
 
 export const defaultUserState = {
   user: {},
-  isAuth: false,
+  isAuth: true,
 }
 
 export const locationType = PropTypes.shape({
