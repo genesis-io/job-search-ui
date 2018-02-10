@@ -16,7 +16,9 @@ class NavigationIcon extends Component {
     const { logo, description, location } = this.props;
     const { hidden } = this.state;
     return (
-      <Link className="navigation-icon" to={location}>
+      <Link
+        className="navigation-icon"
+        to={location}>
         <i className={`fa ${logo}`}/>
         { !hidden &&
           <div className='navigation-icon-tool-tip'>{description}</div>
@@ -32,6 +34,4 @@ NavigationIcon.PropTypes = {
   location: PropTypes.string.isRequired,
 };
 
-
-//journal entries, friends, projects, jobs
 export default NavigationIcon;
