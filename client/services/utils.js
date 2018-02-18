@@ -42,3 +42,7 @@ export const actionApiCall = ({
     });
 };
 
+// export const extractToken = (token) => {
+//   localStorage.setItem('token', token);
+// }
+

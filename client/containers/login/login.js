@@ -2,10 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Joi from 'joi';
-import { updateUserProfile } from '../../actions/userProfile';
+import {
+  updateUserProfile,
+  authenticateUser,
+} from '../../actions/userProfile';
 import { locationType } from '../../types/index';
-import { loginSchema, extractErrorMessage } from '../../services/validation';
-import { authLogin, authSignup } from '../../services/rest';
+import {
+  loginSchema,
+  extractErrorMessage,
+} from '../../services/validation';
+import {
+  authLogin,
+  authSignup,
+} from '../../services/rest';
 import './login.scss';
 import '../../styles/_components.scss';
 
@@ -70,21 +79,20 @@ class Login extends Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    const {
-      email, password, login,
-    } = this.state;
+    const { email, password, login } = this.state;
     const { dispatch, history } = this.props;
     const sendUserInfo = login ?
-      authLogin.bind(null, { email, password }, dispatch, 'succesful login') :
-      authSignup.bind(null, { email, password }, dispatch, 'succesful signup');
+      authLogin.bind(null, { email: email.trim(), password: password.trim() }, dispatch) :
+      authSignup.bind(null, { email: email.trim(), password: password.trim() }, dispatch);
 
     await this.validateForm();
 
     try {
       if (this.shouldLetUserSendRequest()) {
         const response = await sendUserInfo();
-        dispatch(updateUserProfile(response));
-        this.clearForm();
+        dispatch(updateUserProfile(response.user));
+        dispatch(authenticateUser(true));
+        localStorage.setItem('accessToken', response.token);
         history.push('/dashboard');
       }
     } catch (error) {
@@ -107,9 +115,13 @@ class Login extends Component {
         <header className="login-wrapper-header">Job Search</header>
         <form className="login-form" onSubmit={this.handleSubmit}>
           <h3 className="login-form-header">{ location.pathname === '/login' ? 'Welcome Back' : 'Sign up with us!' }</h3>
-          <button type="submit" className="default-button login-form-github">
-            {login ? 'Login with GitHub' : 'Signup with Github' }
-          </button>
+          <a
+            className="default-button login-form-github"
+            href="/api/auth/github"
+          >
+            <i className="fa fa-github button-icon" />
+            <span> {login ? 'Login with GitHub' : 'Signup with Github' }</span>
+          </a>
           <div className="login-form-or">
             <hr />
               or
