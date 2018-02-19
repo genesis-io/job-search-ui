@@ -63,3 +63,6 @@ client/static/bundle.js
 client/static/bundle.js.map
 
 coverage/
+
+/config/development.config.js
+/config/production.config.js

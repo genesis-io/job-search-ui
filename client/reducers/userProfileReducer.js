@@ -11,12 +11,6 @@ export const userProfile = (state = defaultUserState, action) => {
         ...state,
         user: action.user,
       };
-    case AUTHENTICATE_USER:
-      return {
-        ...state,
-        user: { ...state.user },
-        isAuth: action.isAuth,
-      };
     default: return state;
   }
 };

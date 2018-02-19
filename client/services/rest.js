@@ -1,3 +1,5 @@
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { apiCall } from './utils';
 
 export const authSignup = (data, dispatch) => {
@@ -17,3 +19,11 @@ export const authLogin = (data, dispatch) => {
   };
   return apiCall(config, dispatch);
 };
+
+export const socialAuth = ({ match }) => {
+  const { params } = match;
+  localStorage.setItem('accessToken', params.token);
+  return (
+    <Redirect to="/dashboard" />
+  );
+}

@@ -89,10 +89,8 @@ class Login extends Component {
 
     try {
       if (this.shouldLetUserSendRequest()) {
-        const response = await sendUserInfo();
-        dispatch(updateUserProfile(response.user));
-        dispatch(authenticateUser(true));
-        localStorage.setItem('accessToken', response.token);
+        const { token } = await sendUserInfo();
+        localStorage.setItem('accessToken', token);
         history.push('/dashboard');
       }
     } catch (error) {

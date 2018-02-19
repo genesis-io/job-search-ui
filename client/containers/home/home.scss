@@ -6,11 +6,11 @@ $z-index: 5;
 .home {
 
   &-cta {
-    @include flex(column, center, center);
-    height: 500px;
+    @include flex(column, space-around, center);
+    height: 450px;
     width: 100%;
     margin-top: 100px;
-    background-image: url('https://s3-us-west-1.amazonaws.com/jobsearchhr/jobsearchimage2.jpg');
+    background-image: url('https://s3-us-west-1.amazonaws.com/jobsearchhr/rawpixel-com-296613.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -21,6 +21,10 @@ $z-index: 5;
       font-weight: 500;
       text-align: center;
       font-size: 2.6em;
+      z-index: $z-index;
+    }
+
+    &-header-wrapper {
       z-index: $z-index;
     }
 
@@ -38,6 +42,28 @@ $z-index: 5;
       width: 100%;
     }
 
+    &-start {
+      padding: 20px;
+      font-family: $main-font;
+      background-color: $primary;
+      color: white;
+      z-index: $z-index;
+    }
+
+  }
+
+  &-type {
+    @include flex(row, center, center);
+    min-height: 230px;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    font-size: 1.7em;
+
+    &-description {
+      width: 60%;
+      line-height: 200%;
+    }
   }
 
   &-info {

@@ -1,9 +1,12 @@
 import Axios from 'axios';
+import jwt from 'jsonwebtoken';
 import {
   requestInProgress,
   requestFailure,
   requestSuccess,
 } from '../actions/networkActions';
+import configuration from '../../config/config';
+
 
 const axios = Axios.create({
   baseURL: 'http://localhost:5000',
@@ -42,7 +45,10 @@ export const actionApiCall = ({
     });
 };
 
-// export const extractToken = (token) => {
-//   localStorage.setItem('token', token);
-// }
+export const isTokenAuth = token => jwt.verify(token, configuration.JWT_SECRET, (err) => {
+  if (err) {
+    return false;
+  }
+  return true;
+});
 

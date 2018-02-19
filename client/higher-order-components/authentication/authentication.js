@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { isTokenAuth } from '../../services/utils';
 
 export default (ComposedComponent) => {
   class Auth extends Component {
     componentDidMount() {
-      const { user, history } = this.props;
-      if (!user.isAuth) {
+      const { history } = this.props;
+      const token = localStorage.getItem('accessToken');
+      const isAuth = isTokenAuth(token);
+      if (!isAuth) {
         history.push('/');
       }
     }

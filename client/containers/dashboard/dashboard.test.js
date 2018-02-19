@@ -2,6 +2,8 @@ import React from 'react';
 import 'raf/polyfill';
 import { createMockStore } from 'redux-test-utils';
 import { shallow } from 'enzyme';
+import { createMemoryHistory } from 'history';
+
 import Dashboard from '../../containers/dashboard/dashboard';
 
 let component;
@@ -18,7 +20,8 @@ const context = {
 
 const wrappedComponent = () => {
   if (!component) {
-    component = shallow(<Dashboard />, { context }).dive({ context });
+    const history = createMemoryHistory('/');
+    component = shallow(<Dashboard history={history} />, { context }).dive({ context });
   }
   return component;
 }

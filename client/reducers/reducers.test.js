@@ -5,7 +5,6 @@ import * as types from '../types/index';
 describe('network reducers', () => {
   const {
     defaultNetworkState,
-    defaultUserState,
     REQUEST_IN_PROGRESS,
     REQUEST_FAILURE,
     REQUEST_SUCCESS,

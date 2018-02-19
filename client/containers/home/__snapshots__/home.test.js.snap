@@ -8,19 +8,39 @@ exports[`render home component 1`] = `
   <div
     className="home-cta"
   >
-    <h1
-      className="home-cta-header"
+    <div
+      className="home-cta-header-wrapper"
     >
-      Keep Track of everything for your job search
-    </h1>
-    <h3
-      className="home-cta-sub"
+      <h1
+        className="home-cta-header"
+      >
+        Keep Track of everything for your job search
+      </h1>
+      <h3
+        className="home-cta-sub"
+      >
+        Plan, Map, and execute your way to success.
+      </h3>
+    </div>
+    <Link
+      className="home-cta-start cta-button"
+      replace={false}
+      to="/login"
     >
-      Plan, Map, and execute your way to success.
-    </h3>
+      Get Started
+    </Link>
     <div
       className="home-cta-overlay"
     />
+  </div>
+  <div
+    className="home-type"
+  >
+    <div
+      className="home-type-description"
+    >
+      Our app allows _____ Developers like you to log, store and keep up with your personal contributions to a project seamlessly
+    </div>
   </div>
   <div
     className="home-info"

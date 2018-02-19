@@ -7,8 +7,3 @@ export const updateUserProfile = user => ({
   type: UPDATE_USER_PROFILE,
   user,
 });
-
-export const authenticateUser = isAuth => ({
-  type: AUTHENTICATE_USER,
-  isAuth,
-})
