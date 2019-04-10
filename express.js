@@ -10,6 +10,10 @@ const server = express();
 
 server.use(express.static(path.join(__dirname, './client/static')));
 
+server.get('/api/auth/github', (req, res) => {
+  res.redirect(`${process.env.API_SERVICE_URL}/api/auth/github`);
+});
+
 server.get('*', (req, res) => res.sendFile(path.resolve(__dirname, './client/static/index.html')));
 
 server.listen(PORT, (error) => {

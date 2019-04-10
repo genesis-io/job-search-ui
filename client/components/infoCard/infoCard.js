@@ -1,10 +1,11 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './infoCard.scss';
 
 const InfoCard = ({
-  logo, color, header, message,
+logo, color, header, message, buttonText, location,
 }) => {
   const logoClasses = cx(styles.base, {
     fa: true,
@@ -16,6 +17,9 @@ const InfoCard = ({
       <i className={logoClasses} />
       <h1>{ header }</h1>
       <p>{ message }</p>
+      { buttonText &&
+        <Link style={{ color: [color] }} to={location}>{ buttonText }</Link>
+      }
     </div>
   );
 };
@@ -25,6 +29,8 @@ InfoCard.PropTypes = {
   color: PropTypes.string,
   header: PropTypes.string,
   message: PropTypes.string,
+  buttonText: PropTypes.string,
+  location: PropTypes.string,
 };
 
 export default InfoCard;

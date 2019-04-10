@@ -18,12 +18,18 @@ exports[`Login Component, /login should render login component 1`] = `
     >
       Welcome Back
     </h3>
-    <button
+    <a
       className="default-button login-form-github"
-      type="submit"
+      href="/api/auth/github"
     >
-      Login with GitHub
-    </button>
+      <i
+        className="fa fa-github button-icon"
+      />
+      <span>
+         
+        Login with GitHub
+      </span>
+    </a>
     <div
       className="login-form-or"
     >
@@ -87,12 +93,18 @@ exports[`Login Component, /signup should render signp component 1`] = `
     >
       Sign up with us!
     </h3>
-    <button
+    <a
       className="default-button login-form-github"
-      type="submit"
+      href="/api/auth/github"
     >
-      Signup with Github
-    </button>
+      <i
+        className="fa fa-github button-icon"
+      />
+      <span>
+         
+        Signup with Github
+      </span>
+    </a>
     <div
       className="login-form-or"
     >

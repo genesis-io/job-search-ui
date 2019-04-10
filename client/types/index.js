@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const UPDATE_USER_PROFILE = 'UPDATE_USER_PROFILE';
+export const AUTHENTICATE_USER = 'AUTHENTICATE_USER'
 export const REQUEST_SUCCESS = 'REQUEST_SUCCESS';
 export const REQUEST_IN_PROGRESS = 'REQUEST_IN_PROGRESS';
 export const REQUEST_FAILURE = 'REQUEST_FAILURE';
@@ -9,6 +10,10 @@ export const defaultNetworkState = {
   inProgress: false,
   status: '',
   message: '',
+}
+
+export const defaultUserState = {
+  user: {},
 }
 
 export const locationType = PropTypes.shape({

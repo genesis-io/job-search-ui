@@ -1,6 +1,24 @@
 @import '../../styles/mixins';
+@import '../../styles/components';
 
 .info-card {
   @include flex(column, center, center);
   color: white;
+
+  h1 {
+    margin: 0;
+    padding: 25px 0;
+  }
+
+  p {
+    width: 50%;
+    text-align: center;
+    line-height: 2em;
+  }
+
+  a {
+    @extend .default-button;
+    @include flex(row, center, center);
+    background-color: white;
+  }
 }

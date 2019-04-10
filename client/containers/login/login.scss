@@ -33,7 +33,7 @@ $button-width: 100%;
         width: 450px;
       }
 
-      button {
+      button, a {
         padding: $button-padding;
         font-family: $main-font;
       }
@@ -72,11 +72,14 @@ $button-width: 100%;
       }
 
       &-github {
+        @include flex(row, center, center);
         background-color: black;
         color: white;
+        position: relative;
 
-        img {
-          height: 29px;
+        i {
+          font-size: 30px;
+          margin-right: 10px;
         }
 
       }
