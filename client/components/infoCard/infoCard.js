@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import styles from './infoCard.scss';
 
 const InfoCard = ({
-logo, color, header, message, buttonText, local,
+logo, color, header, message, buttonText, location,
 }) => {
   const logoClasses = cx(styles.base, {
     fa: true,
